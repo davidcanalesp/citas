@@ -47,7 +47,7 @@ const Formulario = () => {
                     <label htmlFor="Síntomas" className='block text-gray-700 uppercase font-bold'>Síntomas</label>
                     <textarea
                         id= 'Alta'
-                        placeholder="Describe los sítomas"
+                        placeholder="Describe los síntomas"
                         className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
                     />
                 </div>
