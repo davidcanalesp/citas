@@ -9,6 +9,12 @@ const Formulario = () => {
     const handleSubmit= (e) => {
         //validación del formulario
         e.preventDefault();
+        if ([nombre, propietario, email, fecha, sintoma].includes('')){
+            console.log ('Error. Todos los campos son obligatorios')
+        }
+        else{
+            console.log('Correcto, todos los campos completos')
+        }
     }
 
     return ( 
@@ -75,6 +81,14 @@ const Formulario = () => {
                         onChange={(e)=>setSintoma(e.target.value)}
                     />
                 </div>
+
+                <div>
+                    <input 
+                        type="submit"
+                        value='Guardar datos'
+                        class='bg-blue-500 py-2 px-10 rounded-lg'/>
+                </div>
+
 
             </form>
         </div>
