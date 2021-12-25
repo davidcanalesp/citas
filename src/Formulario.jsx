@@ -18,7 +18,7 @@ const Formulario = () => {
     }
 
     return ( 
-        <div class= 'md: w-1/2 lg:w-2/5'>
+        <div className= 'w-full md:w-1/2 lg:w-2/5'>
             <h2 className='font-black text-3xl text-center'>Seguimiento de Pacientes</h2>
             <p className='text-lg mt-5 text-center mb-10'>Añade pacientes y {' '}
                 <span className='text-indigo-600 font-bold'>adminístralos {nombre}</span>
@@ -40,7 +40,7 @@ const Formulario = () => {
                     />
                 </div>
                 <div className='mb-5'>
-                    <label htmlFor="mascota" class='block text-gray-700 uppercase font-bold'>Propietario</label>
+                    <label htmlFor="mascota" Name='block text-gray-700 uppercase font-bold'>Propietario</label>
                     <input 
                         type='text'
                         placeholder="Nombre del propietario"
@@ -71,7 +71,7 @@ const Formulario = () => {
                     />
                 </div>
 
-                <div class='mb-5'>
+                <div className='mb-5'>
                     <label htmlFor="Sintomas" className='block text-gray-700 uppercase font-bold'>Síntomas</label>
                     <textarea
                         id= 'Sintoma'
@@ -86,7 +86,7 @@ const Formulario = () => {
                     <input 
                         type="submit"
                         value='Guardar datos'
-                        class='bg-blue-500 py-2 px-10 rounded-lg'/>
+                        className='w-full bg-indigo-600 bold text-white py-2 px-10 rounded-lg hover:cursor-pointer hover:bg-indigo-700 transition-colors'/>
                 </div>
 
 

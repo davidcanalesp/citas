@@ -5,14 +5,14 @@ import ListadoPacientes from "./ListadoPacientes";
 
 const App = () => {
   return (
-    <div class="container mx-auto mt-20">
+    <div className="container mx-auto mt-20">
       <h1 className="text-red-600 font-extrabold">
         Hodie in terra canunt angeli, Laetantur archangeli
       </h1>
       <p className="text-indigo-700 font-bold">Hodie Salvator apparuit,</p>
       <p className="uppercase">Hodie Christus natus est</p>
       <Header />
-      <div class='mt-12 md:flex'>
+      <div className='mt-12 md:flex'>
         <Formulario />
         <ListadoPacientes />
       </div>
