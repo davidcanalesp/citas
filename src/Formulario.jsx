@@ -1,19 +1,36 @@
 import { useState } from "react";
-const Formulario = () => {
+const Formulario = ({arregloDePacientes, setArregloDePacientes}) => {
     const [nombre, setNombre]= useState('');
     const [propietario, setPropietario]= useState('');
     const [email, setEmail]= useState('');
     const [fecha, setFecha]= useState('');
     const [sintoma, setSintoma]= useState('');
+    const [fallo, setFallo]= useState(false);
 
     const handleSubmit= (e) => {
         //validación del formulario
+
         e.preventDefault();
         if ([nombre, propietario, email, fecha, sintoma].includes('')){
-            console.log ('Error. Todos los campos son obligatorios')
+            setFallo(true);
+            return;
         }
-        else{
-            console.log('Correcto, todos los campos completos')
+        else {
+            setFallo(false);
+            const objPaciente={
+                nombre,
+                propietario,
+                email,
+                fecha,
+                sintoma
+            }
+            console.log(objPaciente);
+            setNombre('');
+            setPropietario('');
+            setEmail('');
+            setFecha('');
+            setSintoma('');
+            setArregloDePacientes([...arregloDePacientes, objPaciente])
         }
     }
 
@@ -24,10 +41,13 @@ const Formulario = () => {
                 <span className='text-indigo-600 font-bold'>adminístralos {nombre}</span>
             </p>
 
-            <form className='bNameg-white shadow-md rounded-lg py-10 px-5'
+            <form className='bg-white shadow-md rounded-lg py-10 px-5'
                   onSubmit={handleSubmit}
             
             >
+                <div>
+                    {fallo && <p className="bg-red-800 text-white font-bold uppercase py-3 px-5 text-center rounded-md mb-3">¡¡¡Error: TODOS LOS CAMPOS SON NECESARIOS!!!</p>}
+                </div>
                 <div className='mb-5'>
                     <label htmlFor="mascota" className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
                     <input 
@@ -40,7 +60,7 @@ const Formulario = () => {
                     />
                 </div>
                 <div className='mb-5'>
-                    <label htmlFor="mascota" Name='block text-gray-700 uppercase font-bold'>Propietario</label>
+                    <label htmlFor="mascota" className='block text-gray-700 uppercase font-bold'>Propietario</label>
                     <input 
                         type='text'
                         placeholder="Nombre del propietario"
@@ -86,7 +106,7 @@ const Formulario = () => {
                     <input 
                         type="submit"
                         value='Guardar datos'
-                        className='w-full bg-indigo-600 bold text-white py-2 px-10 rounded-lg hover:cursor-pointer hover:bg-indigo-700 transition-colors'/>
+                        className='w-full bg-indigo-600 font-bold text-white py-2 px-10 rounded-lg hover:cursor-pointer hover:bg-indigo-700 transition-colors'/>
                 </div>
 
 

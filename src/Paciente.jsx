@@ -12,14 +12,14 @@ const Paciente = () => {
                 </p>
 
                 <p className='font-normal mb-3 text-gray-700 uppercase'>e-mail:{' '}
-                    <span class='font-bold normal-case'>juan@correo.com</span>
+                    <span className='font-bold normal-case'>juan@correo.com</span>
                 </p>
 
                 <p className='font-normal mb-3 text-gray-700 uppercase'>Ingreso:{' '}
                     <span className='font-bold normal-case'>12/12/2021</span>
                 </p>
 
-                <p clasNames='font-normal mb-3 text-gray-700 uppercase'>Síntomas:{' '}
+                <p className='font-normal mb-3 text-gray-700 uppercase'>Síntomas:{' '}
                     <span className='font-bold normal-case'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis obcaecati facere eveniet voluptatem, culpa voluptate quia, ipsa at ad accusamus numquam! Commodi nobis inventore enim ex a repellat, laborum, cum dolorum amet dolore adipisci voluptates. Et aperiam odio dolorem inventore, voluptatem eius accusantium alias neque nam reiciendis ad, quae qui.</span>
                 </p>
             </div>
