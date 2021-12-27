@@ -15,8 +15,8 @@ const App = () => {
       <p className="uppercase">Hodie Christus natus est</p>
       <Header />
       <div className='mt-12 md:flex'>
-        <Formulario arregloDePacientes={arregloDePacientes} setArregloDePacientes= {setArregloDePacientes}/>
-        <ListadoPacientes />
+        <Formulario arregloDePacientes={arregloDePacientes} setArregloDePacientes= {setArregloDePacientes}clear/>
+        <ListadoPacientes arregloDePacientes={arregloDePacientes}/>
       </div>
     </div>
   );
