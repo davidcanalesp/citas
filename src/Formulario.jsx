@@ -1,15 +1,41 @@
-import { useState } from "react";
-const Formulario = ({arregloDePacientes, setArregloDePacientes}) => {
+import { useState, useEffect } from "react";
+
+const Formulario = ({arregloDePacientes, setArregloDePacientes, pacienteAEditar}) => {
     const [nombre, setNombre]= useState('');
     const [propietario, setPropietario]= useState('');
     const [email, setEmail]= useState('');
     const [fecha, setFecha]= useState('');
     const [sintoma, setSintoma]= useState('');
     const [fallo, setFallo]= useState(false);
+    const [hacerEdicion, setHacerEdicion]= useState(false);
+    
+    useEffect(() => {
+        //¿hay un paciente a editar?
+        if (Object.keys(pacienteAEditar).length >0) {
+            //Si hay un paciente para editar sus datos se pasan al formulario, pero
+            //una vez que los datos estan en <Formulario /> éste no reconoce si es un registro
+            //nuevo o se trata de un pacienteAEditar
+            setNombre (pacienteAEditar.nombre);
+            setPropietario (pacienteAEditar.propietario);
+            setEmail (pacienteAEditar-email);
+            setFecha (pacienteAEditar.fecha);
+            setSintoma (pacienteAEditar.sintoma);
+            setHacerEdicion(true);
+        }
+        else{
+            setHacerEdicion(false);
+            //cuando no hay paciente a editar
+        }
+    }, [pacienteAEditar])
+
+    const generarId = () => {
+        const random= Math.random().toString(36).substring(2);
+        const fecha = Date.now().toString(36);
+        return random+fecha;
+    }
 
     const handleSubmit= (e) => {
         //validación del formulario
-
         e.preventDefault();
         if ([nombre, propietario, email, fecha, sintoma].includes('')){
             setFallo(true);
@@ -22,7 +48,8 @@ const Formulario = ({arregloDePacientes, setArregloDePacientes}) => {
                 propietario,
                 email,
                 fecha,
-                sintoma
+                sintoma,
+                id: generarId()
             }
             console.log(objPaciente);
             setNombre('');
@@ -105,7 +132,7 @@ const Formulario = ({arregloDePacientes, setArregloDePacientes}) => {
                 <div>
                     <input 
                         type="submit"
-                        value='Guardar datos'
+                        value={hacerEdicion ? 'Editar paciente' : 'Guardar datos'}
                         className='w-full bg-indigo-600 font-bold text-white py-2 px-10 rounded-lg hover:cursor-pointer hover:bg-indigo-700 transition-colors'/>
                 </div>
 

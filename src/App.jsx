@@ -5,6 +5,8 @@ import ListadoPacientes from "./ListadoPacientes";
 
 const App = () => {
   const [arregloDePacientes, setArregloDePacientes] = useState ([]);
+  const [pacienteAEditar, setPacienteAEditar]= useState({});
+  //console.log('El paciente a editar es: ', pacienteAEditar);
   
   return (
     <div className="container mx-auto mt-20">
@@ -15,8 +17,16 @@ const App = () => {
       <p className="uppercase">Hodie Christus natus est</p>
       <Header />
       <div className='mt-12 md:flex'>
-        <Formulario arregloDePacientes={arregloDePacientes} setArregloDePacientes= {setArregloDePacientes}clear/>
-        <ListadoPacientes arregloDePacientes={arregloDePacientes}/>
+        <Formulario 
+            arregloDePacientes={arregloDePacientes} 
+            setArregloDePacientes= {setArregloDePacientes}
+            pacienteAEditar = {pacienteAEditar}
+        />
+        <ListadoPacientes 
+            arregloDePacientes={arregloDePacientes}
+            pacienteAEditar= {pacienteAEditar}
+            setPacienteAEditar= {setPacienteAEditar}
+        />
       </div>
     </div>
   );
